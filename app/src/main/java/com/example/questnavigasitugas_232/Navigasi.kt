@@ -2,17 +2,13 @@ package com.example.questnavigasitugas_232
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-
+import com.example.questnavigasitugas_232.view.*
 enum class Navigasi {
     Welcome,
     Detail,
@@ -31,18 +27,18 @@ fun DataApp(
     Scaffold { isiRuang ->
         NavHost(
             navController = navController,
-            startDestination = com.example.questnavigasitugas_232.Navigasi.Welcome.name,
+            startDestination = Navigasi.Welcome.name,
             modifier = Modifier.padding(isiRuang)
         ) {
-            composable(com.example.questnavigasitugas_232.Navigasi.Welcome.name) {
+            composable(Navigasi.Welcome.name) {
                 WelcomeScreen(
                     onSubmitClick = {
-                        navController.navigate(com.example.questnavigasitugas_232.Navigasi.Detail.name)
+                        navController.navigate(Navigasi.Detail.name)
                     }
                 )
             }
 
-            composable(com.example.questnavigasitugas_232.Navigasi.Formulir.name) {
+            composable(Navigasi.Formulir.name) {
                 FormulirPendaftaran(
                     onSubmit = { inputNama, inputJK, inputStatus, inputAlamat ->
                         // simpan data dari form
@@ -52,19 +48,19 @@ fun DataApp(
                         alamat = inputAlamat
 
                         // navigasi ke halaman tampil data
-                        navController.navigate(com.example.questnavigasitugas_232.Navigasi.Detail.name)
+                        navController.navigate(Navigasi.Detail.name)
                     }
                 )
             }
 
-            composable(com.example.questnavigasitugas_232.Navigasi.Detail.name) {
+            composable(Navigasi.Detail.name) {
                 TampilData(
                     nama = nama,
                     jenisKelamin = jenisKelamin,
                     status = status,
                     alamat = alamat,
                     onBackBtnClick = {
-                        navController.navigate(com.example.questnavigasitugas_232.Navigasi.Formulir.name)
+                        navController.navigate(Navigasi.Formulir.name)
                     },
                     navController = navController
                 )
