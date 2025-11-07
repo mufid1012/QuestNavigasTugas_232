@@ -41,4 +41,15 @@ fun WelcomeScreen(onSubmitClick: () -> Unit) {
             painter = painterResource(id = R.drawable.logo_card_lst),
             contentDescription = "Logo",
             modifier = Modifier.size(150.dp)
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = "Muhammad Mufid Ghibran Rumekso",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Medium,
+            color = Color.DarkGray
+        )
+
 
