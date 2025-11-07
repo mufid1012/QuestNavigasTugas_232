@@ -31,18 +31,18 @@ fun DataApp(
     Scaffold { isiRuang ->
         NavHost(
             navController = navController,
-            startDestination = com.example.testnavigasi3layer.Navigasi.Welcome.name,
+            startDestination = com.example.questnavigasitugas_232.Navigasi.Welcome.name,
             modifier = Modifier.padding(isiRuang)
         ) {
-            composable(com.example.testnavigasi3layer.Navigasi.Welcome.name) {
+            composable(com.example.questnavigasitugas_232.Navigasi.Welcome.name) {
                 WelcomeScreen(
                     onSubmitClick = {
-                        navController.navigate(com.example.testnavigasi3layer.Navigasi.Detail.name)
+                        navController.navigate(com.example.questnavigasitugas_232.Navigasi.Detail.name)
                     }
                 )
             }
 
-            composable(com.example.testnavigasi3layer.Navigasi.Formulir.name) {
+            composable(com.example.questnavigasitugas_232.Navigasi.Formulir.name) {
                 FormulirPendaftaran(
                     onSubmit = { inputNama, inputJK, inputStatus, inputAlamat ->
                         // simpan data dari form
@@ -52,7 +52,23 @@ fun DataApp(
                         alamat = inputAlamat
 
                         // navigasi ke halaman tampil data
-                        navController.navigate(com.example.testnavigasi3layer.Navigasi.Detail.name)
+                        navController.navigate(com.example.questnavigasitugas_232.Navigasi.Detail.name)
                     }
                 )
             }
+
+            composable(com.example.questnavigasitugas_232.Navigasi.Detail.name) {
+                TampilData(
+                    nama = nama,
+                    jenisKelamin = jenisKelamin,
+                    status = status,
+                    alamat = alamat,
+                    onBackBtnClick = {
+                        navController.navigate(com.example.questnavigasitugas_232.Navigasi.Formulir.name)
+                    },
+                    navController = navController
+                )
+            }
+        }
+    }
+}
