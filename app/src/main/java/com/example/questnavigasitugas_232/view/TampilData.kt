@@ -1,17 +1,8 @@
 package com.example.questnavigasitugas_232.view
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +14,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.compose.foundation.shape.RoundedCornerShape
+import com.example.questnavigasitugas_232.Navigasi
+import com.example.questnavigasitugas_232.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -79,4 +73,30 @@ fun TampilData(
                 }
                 HorizontalDivider(thickness = 1.dp, color = Color(0xFF7E57C2))
             }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2196F3)),
+                shape = RoundedCornerShape(50.dp),
+                onClick = { navController?.navigate(Navigasi.Welcome.name) }
+            ) {
+                Text("Beranda", fontSize = 18.sp, color = Color.White)
+            }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2196F3)),
+                shape = RoundedCornerShape(50.dp),
+                onClick = { navController?.navigate(Navigasi.Formulir.name) }
+            ) {
+                Text("Formulir Pendaftaran", fontSize = 18.sp, color = Color.White)
+            }
         }
+    }
+}
