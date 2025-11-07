@@ -109,3 +109,12 @@ fun FormulirPendaftaran(
                         Text(text = item)
                     }
                 }
+
+                Text("ALAMAT", fontWeight = FontWeight.SemiBold)
+                OutlinedTextField(
+                    value = alamat,
+                    onValueChange = { alamat = it },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                    placeholder = { Text("Alamat") }
+                )
