@@ -52,4 +52,10 @@ fun WelcomeScreen(onSubmitClick: () -> Unit) {
             color = Color.DarkGray
         )
 
+        Text(
+            text = "20230140232",
+            fontSize = 16.sp,
+            color = Color.Gray
+        )
+
 
