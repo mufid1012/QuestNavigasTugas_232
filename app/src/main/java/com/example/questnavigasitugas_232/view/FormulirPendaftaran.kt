@@ -98,3 +98,14 @@ fun FormulirPendaftaran(
                         Text(text = item)
                     }
                 }
+
+                Text("STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
+                listStatus.forEach { item ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = status == item,
+                            onClick = { status = item }
+                        )
+                        Text(text = item)
+                    }
+                }
